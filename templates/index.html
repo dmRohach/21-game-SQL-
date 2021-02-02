@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Регистрация</title>
+{% endblock %}
+
+{% block body %}
+<html>
+    <title></title>
+    <style>
+        body
+        {
+        background-image:url({{url_for('static',filename='start2.jpg')}})
+        }
+
+    </style>
+    <p> </p>
+<div class="py-5 text-center">
+      <h2>Введите своё имя</h2>
+      <p class="lead">Не играйте на деньги ;)</p>
+
+    <form method="post" action="{{ url_for('index') }}">
+            <p>
+                Name:
+                <input name="name" type="text" size="40">
+            </p>
+            <input type="submit" value="Start">
+        </form>
+    </form>
+</div>
+</html>
+{% endblock %}

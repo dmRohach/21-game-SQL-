@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Игра</title>
+{% endblock %}
+
+{% block nav %}
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="{{ url_for('game', id=id, method='show', name=name) }}">Показать карты в руке</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('game', id=id, method='show_bot', name=name) }}" tabindex="-1" aria-disabled="true">показать карты бота</a>
+            </li>
+        </ul>
+
+    </div>
+{% endblock %}
+
+{% block body %}
+<html>
+    <title></title>
+    <style>
+        body
+        {
+        background-image:url({{url_for('static',filename='finish.jpg')}})
+        }
+
+    </style>
+<div class="row py-lg-1">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">{{text}}</h1>
+        <p class="lead text-muted">оп-ля. продолжаем?</p>
+        <p>
+
+          <a href="{{ url_for('get_card', id=id) }}" class="btn btn-primary my-2">Тянуть Карту</a>
+          <a href="{{ url_for('results', id=id, name=name) }}" class="btn btn-secondary my-2">Хватит!</a>
+        </p>
+      </div>
+</div>
+</html>
+{% endblock %}
