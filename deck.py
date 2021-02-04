@@ -56,13 +56,7 @@ class PlayersHand:
             self.Hand_value = 0
 
     def __repr__(self):
-        if len(self.Hand) > 1:
-            _str = str(self.Hand[0])
-
-            for i in self.Hand[1:]:
-                _str += ', ' + i.__repr__()
-            return _str
-        return str(self.Hand)
+        return ', '.join(str(i) for i in self.Hand)
 
     def get_card(self, card):
         self.Hand.append(card)
